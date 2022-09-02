@@ -21,8 +21,11 @@ public class FilterChain implements Filter {
         return this;
     }
 
+    @Override
     public void doFilter(Request request, Response response, FilterChain fc) {
-        if(index == filters.size()) return ;
+        if(index == filters.size()) {
+            return ;
+        }
         Filter f = filters.get(index);
         index++;
         f.doFilter(request, response, fc);

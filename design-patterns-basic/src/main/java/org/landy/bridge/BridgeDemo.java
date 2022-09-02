@@ -27,6 +27,7 @@ interface DrawingAPI {
 
 /** "ConcreteImplementor"  1/2 */
 class DrawingAPI1 implements DrawingAPI {
+    @Override
     public void drawCircle(final double x, final double y, final double radius) {
         System.out.printf("API1.circle at %f:%f radius %f%n", x, y, radius);
     }
@@ -34,6 +35,7 @@ class DrawingAPI1 implements DrawingAPI {
 
 /** "ConcreteImplementor" 2/2 */
 class DrawingAPI2 implements DrawingAPI {
+    @Override
     public void drawCircle(final double x, final double y, final double radius) {
         System.out.printf("API2.circle at %f:%f radius %f%n", x, y, radius);
     }
@@ -60,10 +62,12 @@ class CircleShape extends Shape {
     }
 
     // low-level i.e. Implementation specific
+    @Override
     public void draw() {
         drawingAPI.drawCircle(x, y, radius);
     }
     // high-level i.e. Abstraction specific
+    @Override
     public void resizeByPercentage(final double pct) {
         radius *= (1.0 + pct/100.0);
     }

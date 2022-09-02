@@ -16,6 +16,7 @@ public class Leader implements  ITarget {
     }
 
     //项目经理自己不干活
+    @Override
     public void doing(String command){
         targets.get(command).doing(command);
     }
